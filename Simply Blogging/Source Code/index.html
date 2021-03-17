@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./myscript.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./mystyle.css">
+</head>
+
+<body>
+    <p style="color: black;font-size: 50px;
+    background-color: royalblue; text-align: center;">
+        Simply Blogging
+    </p>
+    <form>
+        Title : <input type="text" id="title" />
+        Description : <textarea type="text" id="desc">
+        </textarea>
+        Image :<input type="text" id="image" />
+        <!-- <input type="file" id="imageId"/> -->
+        <input type="button" value="Add Blog" onclick="addBlog()" />
+        <hr />
+    </form>
+
+
+    <!-- <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div> -->
+    <div id="blogContainer">
+
+    </div>
+</body>
+
+</html>
