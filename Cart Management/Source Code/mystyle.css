@@ -1,0 +1,14 @@
+.navbar {
+    padding: 1.5rem;
+}
+
+.navbar a {
+    text-align: center;
+    width: 100%;
+}
+
+.card {
+    width: 18rem;
+    display: inline-block;
+    margin: 10px;
+}
