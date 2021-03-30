@@ -1,0 +1,54 @@
+<div id="quizContainer" class="text-left">
+  <h2 class="text-center">
+    Online Test Application
+  </h2>
+  <ul class="list-group list-group-flush" *ngFor="let item of myQuestions">
+    <li class="list-group-item">
+      <strong>{{item.questionId}}. {{item.questionText}}</strong>
+    </li>
+    <div style="margin-left: 20px;">
+      <div class="form-check" *ngFor="let myOption of item.options">
+        <input class="form-check-input" type="radio" name="question{{item.questionId}}"
+          value="{{item.questionId}}_{{myOption.optionValue}}" (change)="onItemChange($event.target.value)"
+          id="question{{item.questionId}}_{{myOption.optionValue}}">
+        <label class="form-check-label" for="question{{item.questionId}}_{{myOption.optionValue}}">
+          {{myOption.optionText}}
+        </label>
+      </div>
+    </div>
+    <div *ngIf="submitted">
+      <span class="text-success" *ngIf="item.answer === item.selectedOption">
+        <strong>Your answer is correct</strong>
+      </span>
+
+      <span *ngIf="item.answer != item.selectedOption">
+        
+        <span  class="text-danger" >
+          <strong>Your answer is wrong. </strong>
+        </span>
+        <span class="text-success">
+          <strong>          Right choice number is {{item.answer}}
+          </strong>
+        </span>
+      </span>
+    </div>
+  </ul>
+
+</div>
+<div style="margin-bottom: 90px;" class="text-center">
+
+  <button *ngIf="!submitted" [disabled]="!allAnswered" class="btn btn-primary" (click)="onSubmit()"
+    type="submit">Submit</button>
+
+    <div *ngIf="submitted">
+      <span class="text-success" *ngIf="isTestPass">
+        <strong>Result: {{testResult}} : Pass</strong>
+      </span>
+      <span class="text-danger" *ngIf="!isTestPass">
+        <strong>        Result: {{testResult}} : Fail
+        </strong>
+      </span>
+    </div>
+  <!-- <button *ngIf="submitted" class="btn btn-danger" (click)="onBack()" type="submit">Restart Quiz</button> -->
+
+</div>
