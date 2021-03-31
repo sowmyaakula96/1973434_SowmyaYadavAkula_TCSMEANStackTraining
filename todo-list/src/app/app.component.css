@@ -1,0 +1,38 @@
+.task-container{
+    text-align: center;
+    /* padding: 20px; */
+}
+
+.form-container{
+    width: 400px; 
+    margin: 0px auto; 
+}
+
+.form-field{
+    display: block
+}
+
+.tableContainer {
+    width: 100%;
+    padding: 0px 10px;
+    /* margin: 20px auto;  */
+    /* border: 1px solid black;  */
+    /* padding: 20px; */
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+  }
+  
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

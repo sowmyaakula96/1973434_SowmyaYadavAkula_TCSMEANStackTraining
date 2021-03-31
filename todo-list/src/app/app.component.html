@@ -1,0 +1,84 @@
+<h2 style="text-align: center; padding: 20px 0px 40px 0px; border-bottom: 1px solid black;"> Task Tracker </h2>
+<div class="task-container">
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <div class="form-container">
+        <h3>To-do Tasks</h3>
+        <form [formGroup]="taskForm" (submit)="submit()">
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Id
+            </mat-label>
+            <input matInput formControlName="id" required>
+            <mat-error *ngIf="taskForm.controls.id.touched && taskForm.controls.id.invalid">
+              <span *ngIf="taskForm.controls.id.errors.required">This field is mandatory.</span>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Name
+            </mat-label>
+            <input matInput formControlName="name" type="name">
+            <mat-error *ngIf="taskForm.controls.name.touched && taskForm.controls.name.invalid">
+              <span *ngIf="taskForm.controls.name.errors.required">This field is mandatory.</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="outline">
+            <mat-label> Description
+            </mat-label>
+            <textarea matInput placeholder="Description.." formControlName="description" type="description"></textarea>
+            <!-- <input matInput formControlName="description" type="description"> -->
+            <mat-error *ngIf="taskForm.controls.description.touched && taskForm.controls.description.invalid">
+              <span *ngIf="taskForm.controls.description.errors.required">This field is mandatory.</span>
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Deadline</mat-label>
+            <!-- <input matInput formControlName="name" type="name"> -->
+            <input matInput formControlName="deadline" formControlName="deadline" [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="taskForm.controls.deadline.touched && taskForm.controls.deadline.invalid">
+              <span *ngIf="taskForm.controls.deadline.errors.required">This field is mandatory.</span>
+            </mat-error>
+          </mat-form-field>
+
+
+          <button mat-raised-button color="primary" type="submit"> Submit</button>
+        </form>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="tableContainer">
+        <h3>To-do List</h3>
+        <table *ngIf="taskData" id="taskList">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Deadline</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let task of tasks">
+              <td>
+                {{ task.id }}
+              </td>
+              <td>
+                {{ task.name }}
+              </td>
+              <td>
+                {{ task.description }}
+              </td>
+              <td>
+                {{ task.deadline }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+   
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
