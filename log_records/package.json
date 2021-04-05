@@ -1,0 +1,14 @@
+{
+  "name": "log_records",
+  "version": "1.0.0",
+  "description": "Create Log Records of a node js application and debugging the same application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sowmya",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
