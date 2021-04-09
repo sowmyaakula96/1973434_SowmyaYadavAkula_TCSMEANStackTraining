@@ -1,1 +1,32 @@
-{"student":[{"firstname":"Sowmya","lastname":"Akula","gender":"Female","email":"sowmyaakula@gmail.com","time":"Mon Apr 05 2021 17:04:09 GMT-0400 (Eastern Daylight Time)"},{"firstname":"raju","lastname":"avula","gender":"male","email":"rajuavula@gmail.com","time":"Mon Apr 05 2021 17:04:52 GMT-0400 (Eastern Daylight Time)"},{"firstname":"ravi","lastname":"suri","gender":"Male","email":"ravi@gmail.com","time":"Mon Apr 05 2021 17:05:15 GMT-0400 (Eastern Daylight Time)"},{"firstname":"rani","lastname":"sangala","gender":"Female","email":"rani@yahoo.com","time":"Mon Apr 05 2021 17:05:44 GMT-0400 (Eastern Daylight Time)"}]}
+{
+    "student": [
+        {
+            "firstname": "Sowmya",
+            "lastname": "Akula",
+            "gender": "Female",
+            "email": "sowmyaakula@gmail.com",
+            "time": "Mon Apr 05 2021 17:04:09 GMT-0400 (Eastern Daylight Time)"
+        },
+        {
+            "firstname": "raju",
+            "lastname": "avula",
+            "gender": "male",
+            "email": "rajuavula@gmail.com",
+            "time": "Mon Apr 05 2021 17:04:52 GMT-0400 (Eastern Daylight Time)"
+        },
+        {
+            "firstname": "ravi",
+            "lastname": "suri",
+            "gender": "Male",
+            "email": "ravi@gmail.com",
+            "time": "Mon Apr 05 2021 17:05:15 GMT-0400 (Eastern Daylight Time)"
+        },
+        {
+            "firstname": "rani",
+            "lastname": "sangala",
+            "gender": "Female",
+            "email": "rani@yahoo.com",
+            "time": "Mon Apr 05 2021 17:05:44 GMT-0400 (Eastern Daylight Time)"
+        }
+    ]
+}

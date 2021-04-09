@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <style>
+        #tableContainer {
+            width: 50%;
+            margin: 20px auto;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="tableContainer">
+        <div style="text-align: center; padding: 10px;">
+            List Task
+        </div>
+        <table id="task_details">
+            <thead>
+                <tr>
+                    <th>Emp id</th>
+                    <th>Task id</th>
+                    <th>Task</th>
+                    <th>Deadline</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <div style="text-align: center; padding: 10px;">
+            Delete Task
+
+            <div style="padding: 20px;">
+                <label>Task id:</label>
+                <input id="myTaskId" type="number" name="taskid" /><br />
+                <button onclick="deletTask()">Delete task</button>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        function insertNewRecord(data) {
+            var table = document.getElementById("task_details");
+            var body = table.getElementsByTagName("tbody")[0];
+            var newRow = body.insertRow(body.length); // row created 
+            var cell1 = newRow.insertCell(0); // cell created 
+            cell1.innerHTML = data.task; // value placed 
+            var cell2 = newRow.insertCell(1); // cell created 
+            cell2.innerHTML = data.id; // value placed
+            var cell3 = newRow.insertCell(2); // cell created 
+            cell3.innerHTML = data.description; // value placed
+            var cell4 = newRow.insertCell(3); // cell created 
+            cell4.innerHTML = data.deadline; // value placed
+        }
+
+        function deletTask() {
+            var taskIdValue = document.getElementById('myTaskId').value;
+            console.log('id', taskIdValue);
+
+            var url = "http://localhost:3000/tasks";
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("DELETE", url + '/' + taskIdValue, true);
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    console.log('Success');
+                    location.reload();
+                } else {
+                    console.log('Failed');
+                }
+            }
+            xhr.send(null);
+        }
+
+        function reqListener() {
+            var tasks = JSON.parse(this.responseText);
+            console.log(tasks.length);
+
+            for (var j = 0; j < tasks.length; j++) {
+                insertNewRecord(tasks[j]);
+            }
+        }
+
+        function myLoad() {
+            var oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", reqListener);
+            oReq.open("GET", "http://localhost:3000/tasks");
+            oReq.send();
+        }
+
+        myLoad()
+    </script>
+
+</body>
+
+</html>
