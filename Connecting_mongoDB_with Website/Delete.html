@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeleteCourse</title>
+</head>
+<body>
+        <div>
+        <h2 style="text-align: center; text-decoration: underline;">Delete Course</h2>
+    </div>
+    <div>
+        <label style="text-decoration: underline blue; font-weight: bolder;" >Course Id:</label>
+        <input type="text" id="cid" placeholder="Please enter a Course ID" style="margin-left: 23px;"/><br/><br/>
+        <button onclick="deletecourse()" >Delete course</button>
+    </div>
+    <script>
+        function deletecourse(){
+            var courseIdValue = document.getElementById('cid').value;
+            console.log('cid', courseIdValue);
+            var url = "http://localhost:9090/deleteCDetails";
+            var xhr = new XMLHttpRequest();
+
+            xhr.open("DELETE", url + '/' + courseIdValue, true);
+            xhr.onload = function () {
+                if (xhr.readyState == 4 && xhr.status == "200") {
+                    console.log('Success');
+                    location.reload();
+                } else {
+                    console.log('Failed');
+                }
+            }
+            xhr.send(null);
+        
+
+        }
+    </script>
+</body>
+</html>

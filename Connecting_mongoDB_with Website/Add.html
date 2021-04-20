@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddCourse</title>
+</head>
+
+<body>
+    <!-- <body style="background-color: rgb(240, 169, 143);"> -->
+    <div>
+        <h2 style="text-align: center; text-decoration: underline;">Add Course</h2>
+    </div>
+    <form action="/AddCDetails"  method="post">
+        <label>Course Id:</label>
+        <input type="text" name="cid" placeholder="Please enter a Unique ID" style="margin-left: 23px;" /><br /><br />
+        <label>Course Name:</label>
+        <input type="text" name="cname" placeholder="Please enter Course Name" /><br /><br />
+        <label>Description:</label>
+        <textarea name="cdescription" cols="30" rows="5" placeholder="Enter Description"
+            style="margin-left: 10px;"></textarea><br /><br />
+        <label>Amount:</label>
+        <input type="text" name="camount" placeholder="Please enter course amount"
+            style="margin-left: 32px;" /><br /><br />
+        <input type="submit" value="submit" />
+        <input type="reset" value="reset" />
+    </form>
+
+    <!-- <form action="/addTask" method="post">
+        <label>Course id:</label>
+        <input type="number" name="empid"/><br/>
+        <label>Course name:</label>
+        <input type="text" name="taskid"/><br/>
+        <label>Task</label>
+        <input type="text" name="task"/><br/>
+        <label>Deadline:</label>
+        <input type="date" name="deadline"/><br/>
+        <input type="submit" value="submit"/>
+        <input type="reset" value="reset"/>
+    </form> -->
+
+</body>
+
+</html>
